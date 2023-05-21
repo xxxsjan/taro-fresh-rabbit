@@ -1,0 +1,10 @@
+page {
+  background-color: $uni-bg-color-grey7;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-view {
+  flex: 1;
+}

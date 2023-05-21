@@ -10,5 +10,8 @@ type HttpOptions = {
 };
 
 export function http<T>(options: HttpOptions) {
-  return request[options.method.toLocaleLowerCase()](options.url, options.data);
+  return request[options.method.toLocaleLowerCase()](
+    options.url,
+    options.data
+  ).then((res) => res.data.result);
 }

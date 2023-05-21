@@ -1,7 +1,10 @@
 import path from "path";
+import { IProjectConfig } from "@tarojs/taro/types/compile/config";
 
+/** @type {IProjectConfig} **/
 const config = {
   projectName: "taro-app",
+
   alias: {
     "@": path.resolve(__dirname, "..", "src"),
   },
@@ -72,10 +75,8 @@ const config = {
     },
   },
   sass: {
-    resource: [
-      path.resolve(__dirname, '..', 'src/styles/variables.scss')
-    ],
-    projectDirectory: path.resolve(__dirname, '..')
+    resource: [path.resolve(__dirname, "..", "src/styles/variables.scss")],
+    projectDirectory: path.resolve(__dirname, ".."),
   },
 };
 

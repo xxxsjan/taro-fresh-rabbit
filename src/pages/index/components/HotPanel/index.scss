@@ -1,0 +1,80 @@
+.hot {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 508rpx;
+  .item {
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    height: 254rpx;
+    border-right: 1rpx solid $uni-text-color-grey1;
+    border-top: 1rpx solid $uni-text-color-grey1;
+    .title {
+      // 公共样式提取到 index.vue 中
+      justify-content: start;
+      &-desc {
+        font-size: 24rpx;
+        color: $gray-2-7;
+        margin-left: 18rpx;
+      }
+    }
+
+    .cards {
+      flex: 1;
+      padding: 15rpx 20rpx;
+      justify-content: space-between;
+      align-items: center;
+      gap: 5rpx;
+      .image {
+        width: 150rpx;
+        height: 150rpx;
+      }
+    }
+
+    // 偶数列
+    &:nth-child(2n) {
+      border-right: 0 none;
+    }
+
+    // 获取前两个item
+    &:nth-child(-n + 2) {
+      border-top: 0 none;
+    }
+  }
+}
+
+.panel {
+  margin: 20rpx 20rpx 0;
+  border-radius: 10rpx;
+  background-color: $uni-bg-color;
+
+  .title {
+    display: flex;
+    align-items: center;
+    padding: 15rpx 24rpx 0;
+    font-size: 32rpx;
+    color: $gray-10-1;
+    position: relative;
+
+    &-desc {
+      font-size: 24rpx;
+      color: $gray-2-7;
+      margin-left: 18rpx;
+    }
+
+    .more {
+      position: absolute;
+      right: 24rpx;
+      font-size: 26rpx;
+      color: $gray-2-7;
+    }
+  }
+  .cards {
+    display: flex;
+  }
+  .name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

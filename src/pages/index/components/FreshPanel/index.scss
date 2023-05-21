@@ -1,0 +1,65 @@
+.fresh {
+  min-height: 320rpx;
+  .cards {
+    display: flex;
+    &-item {
+      width: 145px;
+      padding: 15rpx 20rpx 20rpx;
+      text-align: center;
+
+      .image {
+        width: 126rpx;
+        height: 126rpx;
+      }
+
+      .name {
+        font-size: 24rpx;
+        color: $gray-10-1;
+        margin-top: 20rpx;
+      }
+
+      .price {
+        text-align: left;
+        font-size: 26rpx;
+        color: $red-7;
+        .small {
+          font-size: 20rpx;
+        }
+      }
+    }
+  }
+}
+
+.panel {
+  margin: 20rpx 20rpx 0;
+  border-radius: 10rpx;
+  background-color: $uni-bg-color;
+
+  .title {
+    display: flex;
+    align-items: center;
+    padding: 15rpx 24rpx 0;
+    font-size: 32rpx;
+    color: $gray-10-1;
+    position: relative;
+
+    &-desc {
+      font-size: 24rpx;
+      color: $gray-2-7;
+      margin-left: 18rpx;
+    }
+
+    .more {
+      position: absolute;
+      right: 24rpx;
+      font-size: 26rpx;
+      color: $gray-2-7;
+    }
+  }
+
+  .name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
