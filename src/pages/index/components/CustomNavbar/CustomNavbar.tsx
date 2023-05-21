@@ -8,7 +8,7 @@ export default function CustomNavbar() {
   useEffect(() => {
     function getSystemInfo() {
       const systemInfo = Taro.getSystemInfoSync();
-      console.log("systemInfo: ", systemInfo);
+      
       setSafeArea(systemInfo.safeArea || {});
     }
     getSystemInfo();

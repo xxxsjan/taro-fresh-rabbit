@@ -35,7 +35,8 @@
     overflow: hidden;
     background-color: $gray-1;
     .image {
-      width: 304rpx;
+      width: 100%;
+      // width: 304rpx;
       height: 260rpx;
     }
     .name {

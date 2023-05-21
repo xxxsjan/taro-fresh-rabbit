@@ -92,7 +92,7 @@ const XtxGuess = forwardRef((_, ref) => {
             <Image
               src={item.picture}
               mode="aspectFill"
-              className="Image"
+              className="image"
             ></Image>
             <View className="name">{item.name}</View>
             <View className="price">
