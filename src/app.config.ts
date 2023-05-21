@@ -1,5 +1,10 @@
 export default defineAppConfig({
-  pages: ["pages/my/index", "pages/index/index"],
+  pages: [
+    "pages/my/index",
+    "pages/cart/index",
+    "pages/category/index",
+    "pages/index/index",
+  ],
   window: {
     backgroundTextStyle: "light",
     navigationBarBackgroundColor: "#fff",
@@ -19,18 +24,18 @@ export default defineAppConfig({
         iconPath: "static/tabs/home_default.png",
         selectedIconPath: "static/tabs/home_selected.png",
       },
-      // {
-      //   text: "分类",
-      //   pagePath: "pages/category/index",
-      //   iconPath: "static/tabs/category_default.png",
-      //   selectedIconPath: "static/tabs/category_selected.png",
-      // },
-      // {
-      //   text: "购物车",
-      //   pagePath: "pages/cart/index",
-      //   iconPath: "static/tabs/cart_default.png",
-      //   selectedIconPath: "static/tabs/cart_selected.png",
-      // },
+      {
+        text: "分类",
+        pagePath: "pages/category/index",
+        iconPath: "static/tabs/category_default.png",
+        selectedIconPath: "static/tabs/category_selected.png",
+      },
+      {
+        text: "购物车",
+        pagePath: "pages/cart/index",
+        iconPath: "static/tabs/cart_default.png",
+        selectedIconPath: "static/tabs/cart_selected.png",
+      },
       {
         text: "我的",
         pagePath: "pages/my/index",
