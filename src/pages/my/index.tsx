@@ -8,6 +8,15 @@ export default function My() {
   const systemInfo = getSystemInfoSync();
   console.log("systemInfo: ", systemInfo);
   const safeAreaInsets = systemInfo.safeArea || {};
+
+  function getScrollHeight() {
+    const { screenWidth, windowHeight } = systemInfo;
+
+    return (750 / screenWidth) * windowHeight + "rpx";
+  }
+  const scrollStyle = {
+    height: getScrollHeight(),
+  };
   const profile = {
     avatar:
       "http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/avatar/2023-02-24/f8130ca2-4d4d-43b8-a0b2-48881511c91f.jpeg",
@@ -16,7 +25,7 @@ export default function My() {
 
   // const memberStore = useMemberStore();
   // const { isLogin, profile } = storeToRefs(memberStore);
-
+  const isLogin = true;
   const tabs = ["我的收藏", "猜你喜欢", "我的足迹"];
   const orderTypes = [
     { text: "待付款", icon: "icon-currency", type: 1 },
@@ -63,51 +72,68 @@ export default function My() {
   };
 
   const goToProfile = () => {};
+
   return (
-    <ScrollView id="scrollView" scroll-y enhanced showScrollbar={false}>
+    <ScrollView
+      id="scrollView"
+      scrollY
+      enhanced
+      showScrollbar={false}
+      style={scrollStyle}
+    >
       <View
-        className="Viewport"
+        className="viewport"
         style={{ paddingTop: safeAreaInsets!.top + 40 + "px" }}
       >
         {/* <!-- 个人资料 --> */}
         <View className="profile">
-          <View className="overView">
-            <Navigator v-if="isLogin" url="./profile" hover-className="none">
-              <Image
-                mode="aspectFill"
-                className="avatar"
-                src={profile.avatar}
-              ></Image>
-            </Navigator>
-            {/* <!-- 未登录：点击头像跳转登录页 --> */}
-            <Navigator v-else url="/pages/login/index" hover-className="none">
-              {/* <!-- src="https://pcapi-xiaotuxian-front-devtest.itheima.net/miniapp/uploads/avatar_3.jpg" --> */}
-              <Image
-                className="avatar"
-                src="https://raw.githubusercontent.com/zengzjie/picgo-Image/main/static_files/IMG_6247.JPG"
-              ></Image>
-            </Navigator>
-            <View className="meta">
-              <View v-if="isLogin" className="nickname" onTap={goToProfile}>
-                {profile.nickname}
-              </View>
-              {/* <!-- 未登录：点击文字跳转登录页 --> */}
-              <Navigator
-                v-else
-                url="/pages/login/index"
-                hover-className="none"
-                className="nickname"
-              >
-                未登录
+          <View className="overview">
+            {isLogin && (
+              <Navigator url="./profile" hover-className="none">
+                <Image
+                  mode="aspectFill"
+                  className="avatar"
+                  src={profile.avatar}
+                ></Image>
               </Navigator>
+            )}
+            {/* <!-- 未登录：点击头像跳转登录页 --> */}
+            {!isLogin && (
+              <Navigator url="/pages/login/index" hover-className="none">
+                {/* <!-- src="https://pcapi-xiaotuxian-front-devtest.itheima.net/miniapp/uploads/avatar_3.jpg" --> */}
+                <Image
+                  className="avatar"
+                  src="https://raw.githubusercontent.com/zengzjie/picgo-image/main/static_files/IMG_6247.JPG"
+                ></Image>
+              </Navigator>
+            )}
+
+            <View className="meta">
+              {isLogin && (
+                <View className="nickname" onTap={goToProfile}>
+                  {profile.nickname}
+                </View>
+              )}
+
+              {/* <!-- 未登录：点击文字跳转登录页 --> */}
+              {!isLogin && (
+                <Navigator
+                  url="/pages/login/index"
+                  hover-className="none"
+                  className="nickname"
+                >
+                  未登录
+                </Navigator>
+              )}
+
               <View className="extra">
-                <Text v-if="!isLogin" className="tips">
-                  点击登录账号
-                </Text>
-                <template v-else>
-                  <Text className="update">更新头像昵称</Text>
-                  <Text className="relogin">切换账号</Text>
-                </template>
+                {!isLogin && <Text className="tips">点击登录账号</Text>}
+                {isLogin && (
+                  <>
+                    <Text className="update">更新头像昵称</Text>
+                    <Text className="relogin">切换账号</Text>
+                  </>
+                )}
               </View>
             </View>
           </View>
@@ -135,12 +161,12 @@ export default function My() {
             {orderTypes.map((item) => {
               return (
                 <Navigator
-                  key={item.Text}
+                  key={item.text}
                   className={item.icon}
                   url={"/pages/order/index?type=" + item.type}
                   hover-className="none"
                 >
-                  {item.Text}
+                  {item.text}
                 </Navigator>
               );
             })}
