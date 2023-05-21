@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "taro-app",
+  "projectname": "taro-fresh-rabbit",
   "appid": "testAppId",
   "setting": {
     "es6": false,

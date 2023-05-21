@@ -3,7 +3,7 @@ import { IProjectConfig } from "@tarojs/taro/types/compile/config";
 
 /** @type {IProjectConfig} **/
 const config = {
-  projectName: "taro-app",
+  projectName: "taro-fresh-rabbit",
 
   alias: {
     "@": path.resolve(__dirname, "..", "src"),
