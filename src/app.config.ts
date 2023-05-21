@@ -1,5 +1,5 @@
 export default defineAppConfig({
-  pages: ["pages/index/index", "pages/my/my"],
+  pages: ["pages/my/index", "pages/index/index"],
   window: {
     backgroundTextStyle: "light",
     navigationBarBackgroundColor: "#fff",
@@ -33,7 +33,7 @@ export default defineAppConfig({
       // },
       {
         text: "我的",
-        pagePath: "pages/my/my",
+        pagePath: "pages/my/index",
         iconPath: "static/tabs/user_default.png",
         selectedIconPath: "static/tabs/user_selected.png",
       },

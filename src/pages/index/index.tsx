@@ -1,13 +1,6 @@
-import type { BannerItem, CategoryItem, HotItem, NewItem } from "@/types/home";
-import {
-  getHomeBanner,
-  getHomeCategoryHeadMutli,
-  getHomeMutli,
-  getHomeNewList,
-} from "@/api/modules/home";
 import { View, ScrollView } from "@tarojs/components";
 import { useLoad, pxTransform, getSystemInfoSync } from "@tarojs/taro";
-import React, { useState, useEffect, useRef } from "react";
+
 import XtxCarousel from "@/components/XtxCarousel";
 import XtxGuess from "@/components/XtxGuess";
 
@@ -39,6 +32,7 @@ export default function Index() {
   });
   function getScrollHeight() {
     const { screenWidth, windowHeight } = getSystemInfoSync();
+
     return (750 / screenWidth) * windowHeight + "rpx";
   }
   const scrollStyle = {
