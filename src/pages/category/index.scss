@@ -1,0 +1,139 @@
+page {
+  height: 100%;
+  overflow: hidden;
+}
+
+.viewport {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .search {
+    padding: 0 30rpx 20rpx;
+    background-color: $gray-1;
+    .input {
+      display: flex;
+      align-items: center;
+      height: 64rpx;
+      padding-left: 26rpx;
+      border-radius: 32rpx;
+      font-size: 28rpx;
+      color: $gray-2-8;
+      background-color: $gray-2-3;
+    }
+    .icon-search::before {
+      margin-right: 10rpx;
+    }
+  }
+
+  .categories {
+    display: flex;
+    flex: 1;
+    min-height: 400rpx;
+    .primary {
+      width: 180rpx;
+      flex: none;
+      background-color: $uni-bg-color-grey6;
+      .item {
+        position: relative;
+        height: 96rpx;
+        line-height: 96rpx;
+        text-align: center;
+        font-size: 26rpx;
+        color: $gray-11;
+        &::after {
+          content: "";
+          position: absolute;
+          left: 42rpx;
+          top: 0;
+          width: 96rpx;
+          border-top: 1rpx solid $gray-2-3-1;
+        }
+        &:first-child::after {
+          border-top: none;
+        }
+      }
+
+      .active {
+        background-color: $gray-1;
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 6rpx;
+          height: 100%;
+          background-color: $uni-color-success;
+        }
+      }
+
+      // 激活状态下取消自身和相邻的边框
+      .active + .item::after,
+      .active::after {
+        border-top: none;
+      }
+    }
+
+    .secondary {
+      padding: 20rpx;
+      background-color: $gray-1;
+      .carousel {
+        height: 200rpx;
+        margin-bottom: 40rpx;
+        border-radius: 10rpx;
+        overflow: hidden;
+      }
+      .panel {
+        .title {
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 10rpx;
+          color: $uni-text-color;
+          font-size: 28rpx;
+          border-bottom: 1rpx solid #f7f7f8;
+          .more {
+            padding-left: 20rpx;
+            font-size: 24rpx;
+            color: $uni-text-color-grey;
+            &::after {
+              font-family: "erabbit" !important;
+              content: "\e6c2";
+            }
+          }
+        }
+        .section {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          padding: 20rpx 0;
+          .navigator {
+            width: 150rpx;
+            margin: 0rpx 30rpx 20rpx 0;
+            &:nth-child(3n) {
+              margin-right: 0;
+            }
+
+            .image {
+              width: 126rpx;
+              height: 126rpx;
+            }
+            .name {
+              font-size: 26rpx;
+              color: $uni-text-color;
+              margin: 10rpx 0;
+            }
+            .price {
+              font-size: 18rpx;
+              color: #cf4444;
+            }
+            .number {
+              font-size: 24rpx;
+              margin-left: 2rpx;
+            }
+          }
+        }
+      }
+    }
+  }
+}

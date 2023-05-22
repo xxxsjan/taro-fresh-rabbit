@@ -10,7 +10,7 @@ export default defineAppConfig({
     navigationBarBackgroundColor: "#fff",
     navigationBarTitleText: "WeChat",
     navigationBarTextStyle: "black",
-    navigationStyle: "custom",
+    navigationStyle: "default",
   },
   tabBar: {
     color: "#333",

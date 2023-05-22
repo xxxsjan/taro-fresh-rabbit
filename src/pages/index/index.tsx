@@ -70,3 +70,7 @@ export default function Index() {
     </View>
   );
 }
+
+Index.config = {
+  navigationStyle: "custom",
+};

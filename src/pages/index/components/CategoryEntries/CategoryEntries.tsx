@@ -47,7 +47,6 @@ export default function CategoryEntries(props: {
 
   const handleScroll = (event) => {
     const { scrollLeft, scrollWidth } = event.detail;
-    console.log("scrollLeft, scrollWidth: ", scrollLeft, scrollWidth);
     // scroll-bar移动的距离 = scrollLeft / scrollWidth * 100%
     setCurrentLeft(`${(scrollLeft / scrollWidth) * 100}%`);
   };
