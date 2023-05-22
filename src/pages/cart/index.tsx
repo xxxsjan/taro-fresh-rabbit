@@ -1,7 +1,13 @@
-import { Text, Navigator, Image, ScrollView, View } from "@tarojs/components";
-import { getSystemInfoSync, useLoad } from "@tarojs/taro";
-import { useState } from "react";
+import { lazy, Suspense } from "react";
 
-export default function Cart() {
-  return <>Cart</>;
+const AsyncCart = lazy(() => import("./AsyncCart"));
+
+function Cart() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AsyncCart />
+    </Suspense>
+  );
 }
+
+export default Cart;
