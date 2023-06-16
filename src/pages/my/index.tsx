@@ -8,15 +8,8 @@ export default function My() {
   const systemInfo = getSystemInfoSync();
   console.log("systemInfo: ", systemInfo);
   const safeAreaInsets = systemInfo.safeArea || {};
+  const { windowHeight } = systemInfo;
 
-  function getScrollHeight() {
-    const { screenWidth, windowHeight } = systemInfo;
-
-    return (750 / screenWidth) * windowHeight + "rpx";
-  }
-  const scrollStyle = {
-    height: getScrollHeight(),
-  };
   const profile = {
     avatar:
       "http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/avatar/2023-02-24/f8130ca2-4d4d-43b8-a0b2-48881511c91f.jpeg",
@@ -74,17 +67,19 @@ export default function My() {
   const goToProfile = () => {};
 
   return (
-    <ScrollView
-      id="scrollView"
-      scrollY
-      enhanced
-      showScrollbar={false}
-      style={scrollStyle}
-    >
+    <ScrollView id="scrollView" scrollY enhanced showScrollbar={false}>
       <View
         className="viewport"
         style={{ paddingTop: safeAreaInsets!.top + 40 + "px" }}
       >
+        <View
+          className="navbar"
+          style={{
+            paddingTop: safeAreaInsets!.top + 30 + "px",
+          }}
+        >
+          <View className="title">我的</View>
+        </View>
         {/* <!-- 个人资料 --> */}
         <View className="profile">
           <View className="overview">
@@ -148,7 +143,7 @@ export default function My() {
         {/* <!-- 订单块 - 粘性固定在按钮下方 --> */}
         <View
           className="orders"
-          style={{ top: safeAreaInsets!.top + 48 + "px" }}
+          style={{ top: safeAreaInsets!.top + 78 + "px" }}
         >
           <View className="title">
             我的订单
@@ -581,14 +576,6 @@ export default function My() {
               </>
             )}
           </View>
-        </View>
-        <View
-          className="navbar"
-          style={{
-            paddingTop: safeAreaInsets!.top + 30 + "px",
-          }}
-        >
-          <View className="title">我的</View>
         </View>
       </View>
     </ScrollView>
