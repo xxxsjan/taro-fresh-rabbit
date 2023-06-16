@@ -1,13 +1,7 @@
-import { lazy, Suspense } from "react";
-
-const AsyncCart = lazy(() => import("./AsyncCart"));
+import CartMain from "./components/CartMain";
 
 function Cart() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <AsyncCart />
-    </Suspense>
-  );
+  return <CartMain />;
 }
 
 export default Cart;
