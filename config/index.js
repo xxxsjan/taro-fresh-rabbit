@@ -1,7 +1,6 @@
 import path from "path";
-import { IProjectConfig } from "@tarojs/taro/types/compile/config";
 
-/** @type {IProjectConfig} **/
+/** @type {import("@tarojs/taro/types/compile/config").IProjectConfig} **/
 const config = {
   projectName: "taro-fresh-rabbit",
   alias: {
