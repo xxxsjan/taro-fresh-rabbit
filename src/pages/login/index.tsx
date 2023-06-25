@@ -115,9 +115,9 @@ function Login() {
             {/* <button open-type="getPhoneNumber">
           <Text className="icon icon-phone">手机</Text>
         </button>  */}
-            <button onTap={nextVersion}>
+            <Button onTap={() => nextVersion()}>
               <Text className="icon icon-mail">邮箱</Text>
-            </button>
+            </Button>
           </View>
         </View>
         <View className="tips">
